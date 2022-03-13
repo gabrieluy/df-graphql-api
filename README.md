@@ -43,8 +43,8 @@ mutation
 
 ```bash
 subscription {
-	validationAdded {
-  	id
+  validationAdded {
+    id
     brokerId
     message
     error
