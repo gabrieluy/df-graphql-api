@@ -1,0 +1,41 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type ValidationResponse {
+  id: ID!
+
+  """True if the response is valid"""
+  valid: Boolean!
+
+  """Id of receiver broker"""
+  brokerId: String!
+
+  """Message sended"""
+  message: String!
+
+  """Error message if is invalid"""
+  error: String
+}
+
+type BrokerMessageResponse {
+  """True if the message was sent correctly"""
+  success: Boolean!
+
+  """Error message if success is false"""
+  error: String
+}
+
+type Query {
+  getValidationResponses(offset: Int = 0, limit: Int = 10): [ValidationResponse!]!
+}
+
+type Mutation {
+  sendMessage(
+    """Id of receiver broker"""
+    brokerId: String!
+
+    """Message to send"""
+    message: String!
+  ): BrokerMessageResponse!
+}

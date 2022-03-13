@@ -1,10 +1,21 @@
 import { Module } from '@nestjs/common';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
-
+import { GraphQLModule } from '@nestjs/graphql';
+import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
+import { ValidationResponseModule } from './validation-response/validation-response.module';
+import { BrokerMessageModule } from './broker-message/broker-message-module';
 @Module({
-  imports: [],
-  controllers: [AppController],
-  providers: [AppService],
+  imports: [
+    ValidationResponseModule,
+    BrokerMessageModule,
+    GraphQLModule.forRoot<ApolloDriverConfig>({
+    driver: ApolloDriver,
+    autoSchemaFile: 'schema.gql',
+    debug: true,
+    playground: true
+  }),],
+  controllers: [],
 })
 export class AppModule {}
+
+
+
