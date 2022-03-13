@@ -1,0 +1,1 @@
+export const CREATE_VALIDATION_EVENT_NAME = 'validationAdded'

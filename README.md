@@ -40,3 +40,15 @@ mutation
   }
 }
 ```
+
+```bash
+subscription {
+	validationAdded {
+  	id
+    brokerId
+    message
+    error
+    valid
+  }
+}
+```

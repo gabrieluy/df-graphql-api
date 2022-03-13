@@ -39,3 +39,7 @@ type Mutation {
     message: String!
   ): BrokerMessageResponse!
 }
+
+type Subscription {
+  validationAdded: ValidationResponse!
+}

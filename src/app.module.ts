@@ -9,6 +9,10 @@ import { BrokerMessageModule } from './broker-message/broker-message-module';
     BrokerMessageModule,
     GraphQLModule.forRoot<ApolloDriverConfig>({
     driver: ApolloDriver,
+    subscriptions: {
+      'graphql-ws': true,
+      'subscriptions-transport-ws': true
+    },
     autoSchemaFile: 'schema.gql',
     debug: true,
     playground: true
